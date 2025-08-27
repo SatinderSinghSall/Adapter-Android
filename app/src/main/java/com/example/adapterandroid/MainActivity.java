@@ -1,6 +1,9 @@
 package com.example.adapterandroid;
 
 import android.os.Bundle;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +23,13 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        ListView listView_Countries = findViewById(R.id.ListView_Countries);
+
+        String[] countries = {"India", "United Kingdom", "USA", "France"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countries);
+
+        listView_Countries.setAdapter(adapter);
+
     }
 }
